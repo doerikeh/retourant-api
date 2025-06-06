@@ -1,61 +1,95 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## About Restaurant API (Backend)
 
-## About Laravel
+The Restaurant API is a Laravel 12-based backend for the Restaurant Application, providing RESTful endpoints for managing restaurant data and user authentication. It aims to simplify development with an expressive syntax and powerful tools.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Key Features
+- Simple and fast routing for API endpoints.
+- Eloquent ORM for database interactions.
+- Built-in CORS support for frontend integration.
+- User authentication with registration.
 
 ## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Laravel has extensive [documentation](https://laravel.com/docs) and video tutorials. Check out the [Laravel Bootcamp](https://bootcamp.laravel.com) to build a Laravel app from scratch, or explore [Laracasts](https://laracasts.com) for video tutorials on Laravel and PHP.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Setup Instructions
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Clone the Repository**:
+   ```bash
+   git clone <backend-repository-url>
+   cd backend
+   ```
 
-## Laravel Sponsors
+2. **Install Dependencies**:
+   ```bash
+   composer install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **Configure Environment**:
+   - Copy the `.env.example` to `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Update with your database credentials:
+     ```
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=restaurant_db
+     DB_USERNAME=root
+     DB_PASSWORD=
+     ```
 
-### Premium Partners
+4. **Generate Application Key**:
+   ```bash
+   php artisan key:generate
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+5. **Run Migrations**:
+   ```bash
+   php artisan migrate
+   ```
+
+6. **Start the Server**:
+   ```bash
+   php artisan serve
+   ```
+   Access the API at `http://127.0.0.1:8000`.
+
+## API Endpoints
+
+### User Registration
+- **Endpoint**: `POST /api/register`
+- **Description**: Registers a new user.
+
+
+### Restaurant Filtering
+- **Endpoint**: `GET /api/restaurants`
+- **Description**: Retrieves and filters restaurants.
+- **Query Parameters**:
+  - `name` (optional): Filter by restaurant name.
+  - `date` (optional): Filter by day (e.g., "Mon-Sun").
+  - `hours` (optional): Filter by hours (e.g., "11 am - 10 pm").
+- **Example Request**:
+  ```
+  GET /api/restaurants?date=Mon-Sun&hours=11 am - 10 pm
+  ```
+
+## CORS Configuration
+The API allows requests from `http://localhost:3000`. See `config/cors.php` for details.
+
+## Sponsors
+Thank you to the Laravel community and sponsors. Consider supporting Laravel via the [Laravel Partners program](https://partners.laravel.com).
 
 ## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Thank you for considering contributing to the Restaurant API! See the [Laravel contribution guide](https://laravel.com/docs/contributions) for details.
 
 ## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Please review and follow the [Laravel Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
 ## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you discover a security issue, email [taylor@laravel.com](mailto:taylor@laravel.com). All vulnerabilities will be addressed promptly.
 
 ## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Restaurant API is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
