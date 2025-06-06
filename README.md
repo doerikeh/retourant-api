@@ -33,12 +33,12 @@ Laravel has extensive [documentation](https://laravel.com/docs) and video tutori
      ```
    - Update with your database credentials:
      ```
-  DB_CONNECTION=sqlite
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=restaurant_app
-DB_USERNAME=root
-DB_PASSWORD=
+     DB_CONNECTION=sqlite
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=restaurant_app
+     DB_USERNAME=root
+     DB_PASSWORD=
      ```
 
 4. **Generate Application Key**:
